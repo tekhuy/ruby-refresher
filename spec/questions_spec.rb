@@ -28,10 +28,10 @@ describe 'the Friday test :)' do
     expect(n).to eq ['a', 'b', 'c']
   end
 
-  # it 'reverse_every_element_in_array' do
-  #   n = reverse_every_element_in_array ['dog', 'monkey', 'elephant']
-  #   expect(n).to eq ['god', 'yeknom', 'tnahpele']
-  # end
+  it 'reverse_every_element_in_array' do
+    n = reverse_every_element_in_array ['dog', 'monkey', 'elephant']
+    expect(n).to eq ['god', 'yeknom', 'tnahpele']
+  end
 
   # it 'every_possible_pairing_of_students' do
   #   n = every_possible_pairing_of_students(['Bob', 'Dave', 'Clive']) || []
