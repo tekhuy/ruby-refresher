@@ -141,51 +141,51 @@ describe 'the Friday test :)' do
     expect(n).to eq 'ello ohnoe'
   end
 
-  # it 'round_up_number' do
-  #   n = round_up_number 3.142
-  #   expect(n).to eq 4
-  # end
+  it 'round_up_number' do
+    n = round_up_number 3.142
+    expect(n).to eq 4
+  end
 
-  # it 'round_down_number' do
-  #   n = round_down_number 4.9
-  #   expect(n).to eq 4
-  # end
+  it 'round_down_number' do
+    n = round_down_number 4.9
+    expect(n).to eq 4
+  end
 
-  # it 'format_date_nicely' do
-  #   n = format_date_nicely Time.new(2013, 10, 31)
-  #   expect(n).to eq '31/10/2013'
-  # end
+  it 'format_date_nicely' do
+    n = format_date_nicely Time.new(2013, 10, 31)
+    expect(n).to eq '31/10/2013'
+  end
 
-  # it 'get_domain_name_from_email_address' do
-  #   n = get_domain_name_from_email_address 'alex@makersacademy.com'
-  #   expect(n).to eq 'makersacademy'
-  # end
+  it 'get_domain_name_from_email_address' do
+    n = get_domain_name_from_email_address 'alex@makersacademy.com'
+    expect(n).to eq 'makersacademy'
+  end
 
-  # it 'titleize_a_string' do
-  #   n = titleize_a_string 'the lion the witch and the wardrobe'
-  #   expect(n).to eq 'The Lion the Witch and the Wardrobe'
-  # end
+  it 'titleize_a_string' do
+    n = titleize_a_string 'the lion the witch and the wardrobe'
+    expect(n).to eq 'The Lion the Witch and the Wardrobe'
+  end
 
-  # it 'check_a_string_for_special_characters' do
-  #   a = check_a_string_for_special_characters 'ABCdef123'
-  #   b = check_a_string_for_special_characters 'ABC@def123!'
+  it 'check_a_string_for_special_characters' do
+    a = check_a_string_for_special_characters 'ABCdef123'
+    b = check_a_string_for_special_characters 'ABC@def123!'
 
-  #   expect(a).to be false
-  #   expect(b).to be true
-  # end
+    expect(a).to be false
+    expect(b).to be true
+  end
 
-  # it 'get_upper_limit_of' do
-  #   n = get_upper_limit_of 1..20
-  #   expect(n).to eq 20
-  # end
+  it 'get_upper_limit_of' do
+    n = get_upper_limit_of 1..20
+    expect(n).to eq 20
+  end
 
-  # it 'is_a_3_dot_range?' do
-  #   a = is_a_3_dot_range? 1..20
-  #   b = is_a_3_dot_range? 1...20
+  it 'is_a_3_dot_range?' do
+    a = is_a_3_dot_range? 1..20
+    b = is_a_3_dot_range? 1...20
 
-  #   expect(a).to be false
-  #   expect(b).to be true
-  # end
+    expect(a).to be false
+    expect(b).to be true
+  end
 
   # it 'square_root_of' do
   #   a = square_root_of 9
