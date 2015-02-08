@@ -205,14 +205,18 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+  !range.include?(range.last)
 end
 
 # get the square root of a number
 def square_root_of(number)
+  Math.sqrt(number)
 end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+  file = File.read(file_path)
+  file.split(' ').count
 end
 
 # --- tougher ones ---

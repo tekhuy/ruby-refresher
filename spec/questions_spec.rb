@@ -187,17 +187,17 @@ describe 'the Friday test :)' do
     expect(b).to be true
   end
 
-  # it 'square_root_of' do
-  #   a = square_root_of 9
-  #   b = square_root_of 3
-  #   expect(a).to eq 3.0
-  #   expect(b).to eq 1.7320508075688772
-  # end
+  it 'square_root_of' do
+    a = square_root_of 9
+    b = square_root_of 3
+    expect(a).to eq 3.0
+    expect(b).to eq 1.7320508075688772
+  end
 
-  # it 'word_count_a_file' do
-  #   n = word_count_a_file 'data/lorem.txt'
-  #   expect(n).to eq 70
-  # end
+  it 'word_count_a_file' do
+    n = word_count_a_file 'data/lorem.txt'
+    expect(n).to eq 70
+  end
 
   # it 'call_method_from_string' do
   #   expect { call_method_from_string('foobar') }.to raise_error(NameError)
