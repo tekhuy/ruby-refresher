@@ -48,6 +48,7 @@ end
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
   array.sort_by {|name| name[-1]}
+  # array.sort{|x,y| x[-1]} <=> y[-1]
 end
 
 # cut strings in half, and return the first half, e.g.
@@ -187,7 +188,8 @@ end
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
   nocaps = ["a", "and", "the"]
-  string.sub(/^\w/) { |m| m.upcase }.split(" ").map { |word| nocaps.include?(word) ? word : word.capitalize }.join(" ")
+  string.capitalize.gsub(/\b\w+\b/){|w| nocaps.include?(w) ? w : w.capitalize}
+
 end
 
 # return true if a string contains any special characters
