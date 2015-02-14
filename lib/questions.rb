@@ -1,3 +1,7 @@
+require 'rest_client'
+require 'byebug'
+require 'json'
+
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
   array.select{|s| s =~ /^[a]/ }
@@ -228,13 +232,23 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
-  self.send(str_method, "abc")
+  # self.send(str_method, "abc")
+  eval(str_method)
 end
 
 # return true if the date is a uk bank holiday for 2014
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
+  my_date = date.strftime("%Y-%m-%d")
+  url = 'https://www.gov.uk/bank-holidays.json'
+  response = RestClient.get(url)
+  data = response.body
+  result = JSON.parse(data)
+  result['england-and-wales']['events'].each do |event|
+    return true if event['date'] == my_date
+  end
+  return false 
 end
 
 # given your birthday this year, this method tells you
@@ -242,6 +256,11 @@ end
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+  year,month,day = birthday.year,birthday.month,birthday.day
+  while true do
+    year += 1
+    return year if Time.new(year,month,day).friday?
+  end
 end
 
 # in a file, total the number of times words of different lengths
@@ -260,7 +279,25 @@ end
 # implement fizzbuzz without modulo, i.e. the % method
 # go from 1 to 100
 # (there's no RSpec test for this one)
-def fizzbuzz_without_modulo
+def fizzbuzz_without_modulo(max)
+  fizz = 3
+  buzz = 5 
+  table = []
+  (1..max).each do |el|
+    fizz -= 1
+    buzz -= 1
+    table << el if fizz!=0 && buzz!=0
+    if fizz == 0
+      table << 'fizz'
+      fizz = 3
+    end
+    if buzz == 0 
+      table << 'buzz' unless fizz == 3
+      table[table.size-1] += 'buzz' if fizz == 3 
+      buzz = 5
+    end  
+  end
+  table 
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
